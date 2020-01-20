@@ -140,16 +140,14 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
 */
 function processContains(item, list, callback) {
-  return callback(item(product), list(product));
-}
-  function product(accum, items) {
-    if (accum = items) {
-      return items
-    } else {
-      return accum;
-    }
+  
+  if (list.includes(item)) {
+    return callback(true);
+  } else {
+    return callback(false);
   }
-    
+}
+  
 /**
  * ### Challenge `processDuplicateFree`
  * THIS IS A STRETCH PROBLEM! ATTEMPT ONLY AFTER COMPLETING ALL NON-STRETCH CHALLENGES!
@@ -169,8 +167,10 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+function processDuplicateFree(anyArray, callback) {
+  // return callback(anyArray.filter((item, index) => {
+  //   anyArray.indexOf(item) !=
+  // }))
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -259,11 +259,13 @@ function tallyUpDonations(/* CODE HERE */) {
  * counter() // should return 2
  * etc
 */
-function counterMaker() {
+function counterMaker(incr) {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  let count = 0;
+  return function counter() {
+    
+      return count++;
+    
   }
   // BROKEN CODE ENDS
 }
@@ -288,8 +290,17 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(limit) {
+  let count = 0;
+  return function counter() {
+    if (count <= limit) {
+      return count++;
+    } else {
+      count = 0;
+      return count++;
+    }
+    
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
