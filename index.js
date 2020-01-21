@@ -192,8 +192,12 @@ function processDuplicateFree(anyArray, callback) {
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
-  return runners.forEach((runner, index) => {
-    return `${runner[runner.index]}`;
+  return runners.forEach((fullNames) => {
+    for(let i = 0; i < runners.length; i++) {
+      // return runners[i]
+      
+    }
+    return fullNames
   });
 }
 
@@ -210,8 +214,12 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  return runners.toUpperCase();
+  return runners.map(function(x) {
+    return x.toUpperCase(first_name);
+  });
 }
+
+
 
 
 /**
@@ -227,8 +235,8 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize ) {
+  return (runners.filter(word => word.length === tShirtSize));
 }
 
 /**
@@ -264,15 +272,15 @@ function tallyUpDonations(runners) {
  * counter() // should return 2
  * etc
 */
-function counterMaker(incr) {
-  // BROKEN CODE STARTS
+function counterMaker() {
+  
   let count = 0;
   return function counter() {
     
       return count++;
     
   }
-  // BROKEN CODE ENDS
+  
 }
 
 /**
